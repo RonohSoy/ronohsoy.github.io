@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PETER KIPTOO RONOH | Data Scientist</title>
   <style>
+    /* ===== GLOBAL STYLES ===== */
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
       background-color: #fafafa;
       color: #222;
       margin: 0;
@@ -16,32 +17,64 @@
       overflow-x: hidden;
     }
 
+    h1, h2, h3 {
+      font-weight: 600;
+      margin: 0;
+    }
+
+    a {
+      color: #0077b6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #005f8f;
+      text-decoration: underline;
+    }
+
+    /* ===== HEADER ===== */
     header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      background-color: #ffffff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 4rem 1rem 3rem;
+      background-color: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: fadeInDown 1.2s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     h1 {
-      margin: 0;
-      font-size: 2.3rem;
+      font-size: 2.4rem;
       letter-spacing: 1px;
       color: #222;
     }
 
     p.subtitle {
       color: #555;
-      margin-top: .5rem;
+      margin-top: .6rem;
       font-size: 1.1rem;
+      animation: fadeIn 1.8s ease forwards;
     }
 
-    .resume-btn {
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ===== BUTTONS ===== */
+    .resume-btn, .floating-resume {
       display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.7rem 1.4rem;
       background-color: #0077b6;
       color: #fff;
+      padding: 0.8rem 1.5rem;
       border-radius: 8px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -49,38 +82,27 @@
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    .resume-btn:hover {
+    .resume-btn:hover, .floating-resume:hover {
       background-color: #005f8f;
       transform: translateY(-2px);
     }
 
-    /* Floating resume button */
     .floating-resume {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      background-color: #0077b6;
-      color: #fff;
-      padding: 0.8rem 1.3rem;
-      border-radius: 50px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      font-weight: 600;
-      text-decoration: none;
       z-index: 1000;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      border-radius: 50px;
     }
 
-    .floating-resume:hover {
-      background-color: #005f8f;
-      transform: scale(1.05);
-    }
-
+    /* ===== SECTIONS ===== */
     section {
       max-width: 900px;
       margin: 3rem auto;
       padding: 0 1rem;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
       transition: all 0.8s ease-out;
     }
 
@@ -96,20 +118,22 @@
       margin-bottom: 1rem;
     }
 
+    /* ===== PROJECT CARDS ===== */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      gap: 1.6rem;
     }
 
     .card {
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 1.4rem;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.6s ease, transform 0.6s ease;
+      padding: 1.5rem;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(50px);
     }
 
     .card.visible {
@@ -118,7 +142,7 @@
     }
 
     .card:hover {
-      transform: scale(1.03);
+      transform: rotateX(4deg) rotateY(-3deg) scale(1.02);
       box-shadow: 0 6px 20px rgba(0, 119, 182, 0.25);
     }
 
@@ -128,16 +152,27 @@
       font-size: 1.1rem;
     }
 
-    a {
+    /* ===== CONTACT SECTION ===== */
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .icon-link {
+      font-size: 1.8rem;
       color: #0077b6;
-      text-decoration: none;
-      font-weight: 500;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .icon-link:hover {
+      color: #005f8f;
+      transform: translateY(-4px);
     }
 
+    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 2rem;
@@ -146,7 +181,11 @@
       border-top: 1px solid #ddd;
       margin-top: 3rem;
     }
+
   </style>
+
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a4d4e2a90d.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
@@ -165,22 +204,22 @@
     <div class="projects">
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/Terrestrial_ecosystem_analysis" target="_blank">Terrestrial Ecosystem Analysis</a></h3>
-        <p>Analyzed terrestrial ecosystem data using Python and GeoPandas to explore environmental patterns and visualize geospatial relationships.</p>
+        <p>Analyzed ecosystem data with Python & GeoPandas to explore environmental patterns, land use trends, and spatial distributions.</p>
       </div>
 
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/Twitter_Sentiment_Analysis_Project" target="_blank">Twitter Sentiment Analysis</a></h3>
-        <p>Applied NLP and machine learning to classify sentiments from Twitter data, revealing key patterns in public opinion and behavior.</p>
+        <p>Applied NLP and machine learning to classify Twitter sentiments, identifying behavioral and opinion trends in digital communities.</p>
       </div>
 
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/TELECOM_CHURN_PREDICTION" target="_blank">Telecom Churn Prediction</a></h3>
-        <p>Built predictive models using scikit-learn to identify churn risks in telecom customers and provide actionable retention insights.</p>
+        <p>Built predictive models using Python and scikit-learn to identify at-risk customers and optimize retention strategies.</p>
       </div>
 
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/MOVIE_ANALYSIS" target="_blank">Movie Analysis Dashboard</a></h3>
-        <p>Performed exploratory data analysis on movie datasets to uncover audience trends and profitability insights using Python and visualization tools.</p>
+        <p>Performed exploratory data analysis to uncover profitability and audience insights, visualized through Python dashboards.</p>
       </div>
     </div>
   </section>
@@ -194,41 +233,40 @@
 
   <section>
     <h2>Contact</h2>
-    <p>📧 <a href="mailto:pitronsoy@gmail.com">pitronsoy@gmail.com</a> | 
-       🔗 <a href="https://www.linkedin.com/in/peter-ronoh-a96155195/" target="_blank">LinkedIn</a> | 
-       🐙 <a href="https://github.com/RonohSoy" target="_blank">GitHub</a></p>
+    <div class="contact-icons">
+      <a href="mailto:pitronsoy@gmail.com" class="icon-link"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/peter-ronoh-a96155195/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/RonohSoy" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+    </div>
   </section>
 
   <footer>
     © 2025 PETER KIPTOO RONOH. Built with 💡 and GitHub Pages.
   </footer>
 
-  <!-- Floating resume button -->
   <a href="https://drive.google.com/file/d/1WIEEfzbFc5GWiFQVC-QLaUoQZVpQ7r24/view?usp=sharing" target="_blank" class="floating-resume">📄 Resume</a>
 
   <script>
-    // Fade-in on scroll
+    // Scroll animations
     const sections = document.querySelectorAll('section');
     const cards = document.querySelectorAll('.card');
 
     function revealOnScroll() {
       const triggerBottom = window.innerHeight * 0.9;
-
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
         if (sectionTop < triggerBottom) section.classList.add('visible');
       });
-
       cards.forEach((card, index) => {
         const cardTop = card.getBoundingClientRect().top;
         if (cardTop < triggerBottom) {
-          setTimeout(() => card.classList.add('visible'), index * 150); // staggered delay
+          setTimeout(() => card.classList.add('visible'), index * 100);
         }
       });
     }
-
     window.addEventListener('scroll', revealOnScroll);
     window.addEventListener('load', revealOnScroll);
   </script>
 </body>
 </html>
+
