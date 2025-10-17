@@ -1,275 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>PETER KIPTOO RONOH | Data Scientist</title>
 
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a4d4e2a90d.js" crossorigin="anonymous"></script>
+
   <style>
-    /* === GLOBAL STYLES === */
-    body {
-      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-      background-color: #fafafa;
-      color: #222;
-      margin: 0;
-      line-height: 1.7;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+    :root{
+      --bg:#fafafa; --text:#222; --muted:#555;
+      --accent:#0b8f8c; /* teal-blue-green accent */
+      --accent-dark:#066e6b;
+      --card:#ffffff; --shadow: rgba(11,14,20,0.06);
+      --radius:12px;
+      --maxw:980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: Inter, "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial;
+      background:var(--bg); color:var(--text); margin:0; line-height:1.6; -webkit-font-smoothing:antialiased;
     }
 
-    h1, h2, h3 {
-      font-weight: 600;
-      margin: 0;
+    /* Header */
+    header{
+      text-align:center; padding:4rem 1rem 2.5rem; background:#fff;
+      box-shadow: 0 6px 20px var(--shadow); margin-bottom:1rem;
+      opacity:0; transform:translateY(-18px); animation:hdr 900ms ease forwards;
     }
-
-    a {
-      color: #0077b6;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    @keyframes hdr{to{opacity:1; transform:none}}
+    h1{font-size:2.4rem; letter-spacing:1px; margin:0; color:var(--text)}
+    p.lead{color:var(--muted); margin:.6rem auto 0; max-width:720px; font-size:1.05rem}
+    .resume-btn{
+      display:inline-block; margin-top:1rem; padding:.7rem 1.35rem; border-radius:10px;
+      background:var(--accent); color:#fff; text-decoration:none; font-weight:600;
+      box-shadow: 0 6px 18px rgba(11,143,140,0.12); transition:transform .18s ease, background .18s;
     }
+    .resume-btn:hover{transform:translateY(-3px); background:var(--accent-dark)}
 
-    a:hover {
-      color: #005f8f;
-      text-decoration: underline;
+    main{max-width:var(--maxw); margin:2rem auto; padding:0 1rem;}
+
+    section{opacity:0; transform:translateY(26px); transition:all .75s cubic-bezier(.2,.9,.2,1); margin-bottom:2.5rem}
+    section.visible{opacity:1; transform:none}
+    h2{color:var(--accent); border-bottom:3px solid rgba(11,143,140,0.08); padding-bottom:.35rem; margin-bottom:1rem}
+
+    /* Projects grid */
+    .projects{display:grid; gap:1.4rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+    .card{
+      background:var(--card); border-radius:var(--radius); padding:1.25rem; box-shadow:0 6px 18px var(--shadow); transform-style:preserve-3d;
+      transition:transform .45s ease, box-shadow .45s ease, opacity .6s ease; opacity:0;
     }
+    .card.visible{opacity:1}
+    .card:hover{transform:translateY(-8px) rotateX(2deg) translateZ(0); box-shadow:0 18px 40px rgba(6,110,107,0.12)}
+    .card h3{font-size:1.05rem; margin:0 0 .45rem; color:var(--accent)}
+    .card p{margin:0; color:var(--muted); font-size:.95rem}
 
-    /* === HEADER === */
-    header {
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      background-color: #fff;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      opacity: 0;
-      transform: translateY(-30px);
-      animation: fadeInDown 1.2s ease forwards;
+    /* AI Projects label */
+    .badge{display:inline-block; font-size:.82rem; padding:.18rem .6rem; border-radius:999px; background:rgba(11,143,140,0.12); color:var(--accent); font-weight:600}
+
+    /* Skills */
+    .skills{display:flex; gap:1rem; flex-wrap:wrap; align-items:center}
+    .chip{background:#fff; border-radius:999px; padding:.45rem .7rem; box-shadow:0 6px 18px var(--shadow); color:var(--muted); font-weight:600}
+
+    /* Contact */
+    .contact-wrap{display:flex; gap:2rem; align-items:center; justify-content:center; flex-wrap:wrap}
+    .contact-item{display:flex; align-items:center; gap:.6rem; color:var(--muted); text-decoration:none; background:#fff; padding:.55rem .8rem; border-radius:10px; box-shadow:0 6px 18px var(--shadow)}
+    .contact-item i{font-size:1.15rem; color:var(--accent)}
+
+    /* Form */
+    .form-card{max-width:740px; margin:0 auto; background:#fff; padding:1rem; border-radius:12px; box-shadow:0 10px 30px rgba(6,110,107,0.06)}
+    .form-row{display:flex; gap:.8rem; margin-bottom:.7rem}
+    .form-row .field{flex:1}
+    label{display:block; font-size:.86rem; color:var(--muted); margin-bottom:.35rem}
+    input[type="text"], input[type="email"], textarea{
+      width:100%; padding:.6rem .7rem; border-radius:8px; border:1px solid #e6e6e6; font-size:.95rem; outline:none;
     }
+    textarea{min-height:120px; resize:vertical}
 
-    @keyframes fadeInDown {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    .btn-primary{background:var(--accent); color:#fff; padding:.65rem 1.05rem; border-radius:8px; font-weight:700; border:none; cursor:pointer}
+    .btn-primary:hover{background:var(--accent-dark)}
 
-    h1 {
-      font-size: 2.4rem;
-      letter-spacing: 1px;
-      color: #222;
-    }
+    footer{padding:2.2rem 1rem; text-align:center; color:var(--muted); border-top:1px solid #eee; margin-top:2.5rem}
 
-    p.subtitle {
-      color: #555;
-      margin-top: .6rem;
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin-inline: auto;
-      animation: fadeIn 1.8s ease forwards;
-    }
+    /* Floating resume */
+    .floating-resume{position:fixed; bottom:22px; right:22px; z-index:999; border-radius:999px; padding:.6rem .95rem; background:var(--accent); color:#fff; box-shadow:0 12px 30px rgba(6,110,107,0.12); text-decoration:none; font-weight:700}
+    .floating-resume:hover{transform:translateY(-3px); background:var(--accent-dark)}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* === BUTTONS === */
-    .resume-btn, .floating-resume {
-      display: inline-block;
-      background-color: #0077b6;
-      color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .resume-btn:hover, .floating-resume:hover {
-      background-color: #005f8f;
-      transform: translateY(-2px);
-    }
-
-    .floating-resume {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-      border-radius: 50px;
-    }
-
-    /* === SECTIONS === */
-    section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    h2 {
-      border-bottom: 2px solid #0077b6;
-      padding-bottom: .3rem;
-      color: #0077b6;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-
-    /* === PROJECT CARDS === */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.6rem;
-    }
-
-    .card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 1.5rem;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      transform: translateY(50px);
-    }
-
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card:hover {
-      transform: scale(1.02) translateY(-4px);
-      box-shadow: 0 6px 18px rgba(0, 119, 182, 0.2);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #0077b6;
-      font-size: 1.1rem;
-    }
-
-    /* === CONTACT === */
-    .contact-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .icon-link {
-      font-size: 1.8rem;
-      color: #0077b6;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .icon-link:hover {
-      color: #005f8f;
-      transform: translateY(-4px);
-    }
-
-    /* === FOOTER === */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #ddd;
-      margin-top: 3rem;
-    }
-
-    /* === RESPONSIVE === */
-    @media (max-width: 600px) {
-      h1 { font-size: 1.9rem; }
-      .resume-btn { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
-      p.subtitle { font-size: 1rem; }
+    /* responsive tweaks */
+    @media (max-width:720px){
+      header{padding:2.6rem 1rem 1.6rem}
+      h1{font-size:1.9rem}
+      .form-row{flex-direction:column}
+      .contact-item{width:100%; justify-content:flex-start}
     }
   </style>
-
-  <script src="https://kit.fontawesome.com/a4d4e2a90d.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
     <h1>PETER KIPTOO RONOH</h1>
-    <p class="subtitle">Data Scientist | Environmental, Agricultural, Business & Sports Analytics | Research Enthusiast</p>
-    <a href="https://drive.google.com/file/d/1WIEEfzbFc5GWiFQVC-QLaUoQZVpQ7r24/view?usp=sharing" target="_blank" class="resume-btn">📄 Download Resume</a>
+    <p class="lead">Data Scientist | AI & Analytics | Environment, Agriculture, Business & Sports Research</p>
+    <a class="resume-btn" href="https://drive.google.com/file/d/1WIEEfzbFc5GWiFQVC-QLaUoQZVpQ7r24/view?usp=sharing" target="_blank" rel="noopener">📄 Download Resume</a>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I’m a Data Scientist passionate about leveraging analytics to advance sustainable solutions across agriculture, business, environment, and sports. With a strong foundation in mathematics, research, and data science, I transform complex datasets into actionable insights that inform strategy, innovation, and performance improvement.</p>
-  </section>
+  <main>
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Me <span class="badge" style="margin-left:.6rem">AI & Research</span></h2>
+      <p>I’m a data scientist who combines rigorous research and practical engineering to turn messy data into reliable insights. I apply AI, machine learning, and geospatial analytics to problems in environment, agriculture, business, and sports — designing models, visualizations and reproducible pipelines that support decision-making and measurable impact.</p>
+    </section>
 
-  <section>
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3><a href="https://github.com/RonohSoy/Terrestrial_ecosystem_analysis" target="_blank">Terrestrial Ecosystem Analysis</a></h3>
-        <p>Applied geospatial analytics with Python & GeoPandas to study environmental distribution patterns and land use trends.</p>
+    <!-- AI Projects -->
+    <section id="projects">
+      <h2>AI-Powered Projects</h2>
+      <div class="projects">
+        <article class="card">
+          <h3><a href="https://github.com/RonohSoy/Terrestrial_ecosystem_analysis" target="_blank" rel="noopener">Terrestrial Ecosystem Analysis</a></h3>
+          <p>Geospatial & remote-sensing analysis (GeoPandas, Sentinel data) to reveal land-cover patterns and environmental indicators. Reproducible Python notebooks and maps included.</p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://github.com/RonohSoy/Twitter_Sentiment_Analysis_Project" target="_blank" rel="noopener">Twitter Sentiment Analysis</a></h3>
+          <p>NLP pipeline and classification models to extract sentiment and topic trends from Twitter data—useful for monitoring public response and campaign analysis.</p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://github.com/RonohSoy/TELECOM_CHURN_PREDICTION" target="_blank" rel="noopener">Telecom Churn Prediction</a></h3>
+          <p>Supervised learning (classification) to predict customer churn and derive retention strategies. Feature engineering, model tuning, and evaluation included.</p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://github.com/RonohSoy/MOVIE_ANALYSIS" target="_blank" rel="noopener">Movie Analytics Dashboard</a></h3>
+          <p>Exploratory analysis and visual dashboards to surface audience behavior, revenue drivers, and genre performance using Python visualization libraries.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills & Focus -->
+    <section id="skills">
+      <h2>Skills & Focus Areas</h2>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+        <div class="chip">Python</div>
+        <div class="chip">SQL</div>
+        <div class="chip">SPSS</div>
+        <div class="chip">Power BI</div>
+        <div class="chip">GeoPandas / QGIS</div>
+        <div class="chip">Tableau</div>
+      </div>
+      <p style="color:var(--muted)">Focus: Artificial Intelligence & Machine Learning, Geospatial Analysis, Research Methods, Sports & Agricultural Analytics, Predictive Modeling, Sustainability Intelligence.</p>
+    </section>
+
+    <!-- Contact visible -->
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <div class="contact-wrap" style="margin-bottom:1rem">
+        <!-- visible icon + text items -->
+        <a class="contact-item" href="mailto:pitronsoy@gmail.com"><i class="fas fa-envelope"></i> <span>pitronsoy@gmail.com</span></a>
+        <a class="contact-item" href="https://www.linkedin.com/in/peter-ronoh-a96155195" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> <span>LinkedIn</span></a>
+        <a class="contact-item" href="https://github.com/RonohSoy" target="_blank" rel="noopener"><i class="fab fa-github"></i> <span>GitHub</span></a>
       </div>
 
-      <div class="card">
-        <h3><a href="https://github.com/RonohSoy/Twitter_Sentiment_Analysis_Project" target="_blank">Twitter Sentiment Analysis</a></h3>
-        <p>Implemented NLP and sentiment models to analyze social media discourse and understand audience engagement trends.</p>
+      <!-- Contact form (Formspree) -->
+      <!--
+        FORM SETUP:
+        1) Go to https://formspree.io and create a free form.
+        2) Copy the form id they give you (looks like 'xyznabcd') and replace 'YOUR_FORMSPREE_ID' below.
+        3) The form will then forward messages to your email (pitronsoy@gmail.com).
+        Alternatively, use Netlify Forms if you prefer hosting there.
+      -->
+      <div class="form-card" aria-labelledby="contact">
+        <form id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required>
+            </div>
+          </div>
+
+          <div style="margin-bottom:.7rem">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="How can I help?" required></textarea>
+          </div>
+
+          <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap">
+            <button class="btn-primary btn-primary" type="submit">Send Message</button>
+            <div id="formResponse" style="color:var(--muted);font-size:.95rem"></div>
+          </div>
+        </form>
       </div>
 
-      <div class="card">
-        <h3><a href="https://github.com/RonohSoy/TELECOM_CHURN_PREDICTION" target="_blank">Telecom Churn Prediction</a></h3>
-        <p>Developed predictive models using scikit-learn to forecast customer churn and improve business retention strategies.</p>
-      </div>
+    </section>
+  </main>
 
-      <div class="card">
-        <h3><a href="https://github.com/RonohSoy/MOVIE_ANALYSIS" target="_blank">Movie Analytics Dashboard</a></h3>
-        <p>Explored box office and audience data to uncover trends in film success and consumer preferences.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <p><strong>Languages:</strong> Python, SQL<br>
-       <strong>Tools:</strong> SPSS, Power BI, Excel, GeoPandas, QGIS, Tableau<br>
-       <strong>Focus Areas:</strong> Data Analytics, Geospatial Analysis, Research, Sports Analytics, Agricultural Data Intelligence, Sustainability Insights</p>
-  </section>
-
-  <section>
-  <h2>Contact</h2>
-  <div class="contact-icons">
-    <a href="mailto:pitronsoy@gmail.com" class="icon-link"><i class="fas fa-envelope"></i> pitronsoy@gmail.com</a>
-    <a href="https://www.linkedin.com/in/peter-ronoh-a96155195/" target="_blank" class="icon-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://github.com/RonohSoy" target="_blank" class="icon-link"><i class="fab fa-github"></i> GitHub</a>
-  </div>
-</section>
+  <a class="floating-resume" href="https://drive.google.com/file/d/1WIEEfzbFc5GWiFQVC-QLaUoQZVpQ7r24/view?usp=sharing" target="_blank" rel="noopener">📄 Resume</a>
 
   <footer>
-    © 2025 PETER KIPTOO RONOH. Built with 💡 and GitHub Pages.
+    © 2025 PETER KIPTOO RONOH · Built with data & care · <a href="https://github.com/RonohSoy" target="_blank" rel="noopener">Github</a>
   </footer>
 
-  <a href="https://drive.google.com/file/d/1WIEEfzbFc5GWiFQVC-QLaUoQZVpQ7r24/view?usp=sharing" target="_blank" class="floating-resume">📄 Resume</a>
-
   <script>
-    // Scroll animations
+    /* -------------------------
+       Reveal on scroll + stagger
+       ------------------------- */
     const sections = document.querySelectorAll('section');
     const cards = document.querySelectorAll('.card');
 
-    function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.9;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < triggerBottom) section.classList.add('visible');
+    function reveal() {
+      const trigger = window.innerHeight * 0.9;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add('visible');
       });
-      cards.forEach((card, index) => {
-        const cardTop = card.getBoundingClientRect().top;
-        if (cardTop < triggerBottom) {
-          setTimeout(() => card.classList.add('visible'), index * 120);
-        }
+      cards.forEach((card, i) => {
+        const top = card.getBoundingClientRect().top;
+        if (top < trigger) setTimeout(()=>card.classList.add('visible'), i * 110);
       });
     }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+
+    /* -------------------------
+       Contact form handling
+       ------------------------- */
+    const form = document.getElementById('contactForm');
+    const resp = document.getElementById('formResponse');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resp.textContent = 'Sending…';
+      const action = form.getAttribute('action');
+      // Basic validation
+      const fd = new FormData(form);
+      try {
+        const res = await fetch(action, {
+          method: 'POST',
+          body: fd,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          resp.style.color = 'green';
+          resp.textContent = 'Message sent — thank you! I will reply soon.';
+          form.reset();
+        } else {
+          const data = await res.json();
+          resp.style.color = '#c0392b';
+          resp.textContent = data?.error || 'Could not send message. Please try again or email directly.';
+        }
+      } catch (err) {
+        resp.style.color = '#c0392b';
+        resp.textContent = 'Network error. Please check your connection and try again.';
+      }
+    });
   </script>
 </body>
 </html>
