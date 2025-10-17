@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PETER KIPTOO RONOH | Data Scientist</title>
+
   <style>
-    /* ===== GLOBAL STYLES ===== */
+    /* === GLOBAL STYLES === */
     body {
-      font-family: 'Inter', 'Segoe UI', sans-serif;
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
       background-color: #fafafa;
       color: #222;
       margin: 0;
-      padding: 0;
       line-height: 1.7;
       scroll-behavior: smooth;
       overflow-x: hidden;
@@ -33,22 +33,19 @@
       text-decoration: underline;
     }
 
-    /* ===== HEADER ===== */
+    /* === HEADER === */
     header {
       text-align: center;
       padding: 4rem 1rem 3rem;
       background-color: #fff;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       opacity: 0;
       transform: translateY(-30px);
       animation: fadeInDown 1.2s ease forwards;
     }
 
     @keyframes fadeInDown {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -61,6 +58,8 @@
       color: #555;
       margin-top: .6rem;
       font-size: 1.1rem;
+      max-width: 650px;
+      margin-inline: auto;
       animation: fadeIn 1.8s ease forwards;
     }
 
@@ -69,7 +68,7 @@
       to { opacity: 1; }
     }
 
-    /* ===== BUTTONS ===== */
+    /* === BUTTONS === */
     .resume-btn, .floating-resume {
       display: inline-block;
       background-color: #0077b6;
@@ -96,7 +95,7 @@
       border-radius: 50px;
     }
 
-    /* ===== SECTIONS ===== */
+    /* === SECTIONS === */
     section {
       max-width: 900px;
       margin: 3rem auto;
@@ -116,9 +115,10 @@
       padding-bottom: .3rem;
       color: #0077b6;
       margin-bottom: 1rem;
+      font-size: 1.4rem;
     }
 
-    /* ===== PROJECT CARDS ===== */
+    /* === PROJECT CARDS === */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -130,8 +130,7 @@
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
       padding: 1.5rem;
-      transform-style: preserve-3d;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
       opacity: 0;
       transform: translateY(50px);
     }
@@ -142,8 +141,8 @@
     }
 
     .card:hover {
-      transform: rotateX(4deg) rotateY(-3deg) scale(1.02);
-      box-shadow: 0 6px 20px rgba(0, 119, 182, 0.25);
+      transform: scale(1.02) translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0, 119, 182, 0.2);
     }
 
     .card h3 {
@@ -152,7 +151,7 @@
       font-size: 1.1rem;
     }
 
-    /* ===== CONTACT SECTION ===== */
+    /* === CONTACT === */
     .contact-icons {
       display: flex;
       justify-content: center;
@@ -172,7 +171,7 @@
       transform: translateY(-4px);
     }
 
-    /* ===== FOOTER ===== */
+    /* === FOOTER === */
     footer {
       text-align: center;
       padding: 2rem;
@@ -182,21 +181,26 @@
       margin-top: 3rem;
     }
 
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.9rem; }
+      .resume-btn { font-size: 0.85rem; padding: 0.7rem 1.2rem; }
+      p.subtitle { font-size: 1rem; }
+    }
   </style>
 
-  <!-- Font Awesome for icons -->
   <script src="https://kit.fontawesome.com/a4d4e2a90d.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
     <h1>PETER KIPTOO RONOH</h1>
-    <p class="subtitle">Data Scientist | Deep Learning | Environmental, Agricultural & Business Analytics</p>
+    <p class="subtitle">Data Scientist | Environmental, Agricultural, Business & Sports Analytics | Research Enthusiast</p>
     <a href="https://drive.google.com/file/d/1WIEEfzbFc5GWiFQVC-QLaUoQZVpQ7r24/view?usp=sharing" target="_blank" class="resume-btn">📄 Download Resume</a>
   </header>
 
   <section>
     <h2>About Me</h2>
-    <p>I’m a Data Scientist passionate about transforming data into actionable insights that drive innovation and sustainability. With a strong foundation in mathematics, programming, and analytics, I focus on solving challenges across environmental systems, agriculture, and business intelligence using machine learning and deep learning techniques.</p>
+    <p>I’m a Data Scientist passionate about leveraging analytics to advance sustainable solutions across agriculture, business, environment, and sports. With a strong foundation in mathematics, research, and data science, I transform complex datasets into actionable insights that inform strategy, innovation, and performance improvement.</p>
   </section>
 
   <section>
@@ -204,22 +208,22 @@
     <div class="projects">
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/Terrestrial_ecosystem_analysis" target="_blank">Terrestrial Ecosystem Analysis</a></h3>
-        <p>Analyzed ecosystem data with Python & GeoPandas to explore environmental patterns, land use trends, and spatial distributions.</p>
+        <p>Applied geospatial analytics with Python & GeoPandas to study environmental distribution patterns and land use trends.</p>
       </div>
 
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/Twitter_Sentiment_Analysis_Project" target="_blank">Twitter Sentiment Analysis</a></h3>
-        <p>Applied NLP and machine learning to classify Twitter sentiments, identifying behavioral and opinion trends in digital communities.</p>
+        <p>Implemented NLP and sentiment models to analyze social media discourse and understand audience engagement trends.</p>
       </div>
 
       <div class="card">
         <h3><a href="https://github.com/RonohSoy/TELECOM_CHURN_PREDICTION" target="_blank">Telecom Churn Prediction</a></h3>
-        <p>Built predictive models using Python and scikit-learn to identify at-risk customers and optimize retention strategies.</p>
+        <p>Developed predictive models using scikit-learn to forecast customer churn and improve business retention strategies.</p>
       </div>
 
       <div class="card">
-        <h3><a href="https://github.com/RonohSoy/MOVIE_ANALYSIS" target="_blank">Movie Analysis Dashboard</a></h3>
-        <p>Performed exploratory data analysis to uncover profitability and audience insights, visualized through Python dashboards.</p>
+        <h3><a href="https://github.com/RonohSoy/MOVIE_ANALYSIS" target="_blank">Movie Analytics Dashboard</a></h3>
+        <p>Explored box office and audience data to uncover trends in film success and consumer preferences.</p>
       </div>
     </div>
   </section>
@@ -228,7 +232,7 @@
     <h2>Skills</h2>
     <p><strong>Languages:</strong> Python, SQL<br>
        <strong>Tools:</strong> SPSS, Power BI, Excel, GeoPandas, QGIS, Tableau<br>
-       <strong>Focus Areas:</strong> Deep Learning, Data Analytics, Geospatial Analysis, Predictive Modeling, Sustainability Intelligence</p>
+       <strong>Focus Areas:</strong> Data Analytics, Geospatial Analysis, Research, Sports Analytics, Agricultural Data Intelligence, Sustainability Insights</p>
   </section>
 
   <section>
@@ -260,7 +264,7 @@
       cards.forEach((card, index) => {
         const cardTop = card.getBoundingClientRect().top;
         if (cardTop < triggerBottom) {
-          setTimeout(() => card.classList.add('visible'), index * 100);
+          setTimeout(() => card.classList.add('visible'), index * 120);
         }
       });
     }
@@ -269,4 +273,3 @@
   </script>
 </body>
 </html>
-
